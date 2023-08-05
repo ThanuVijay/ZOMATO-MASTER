@@ -6,6 +6,14 @@ const UserSchema = new mongoose.Schema({
     password:{type:String, required:true},
     address:[{detail:{type:String}, for:{type:String}}],
     phoneNumber:[{type:Number}],
-})
+},
+{
+    timestamps:true,
+}
+);
 
-export const UserModel = mongoose.modal("Users",UserSchema);
+UserSchema.methods.generateJwtToken = function(){
+    return jwt.sign({user: this._id.toString() },"ZomatoApp");
+};
+
+export const UserModel = mongoose.model("Users",UserSchema);

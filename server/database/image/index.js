@@ -4,4 +4,4 @@ const ImageSchema = new mongoose.Schema({
   images:[{location: {type:String, required:true}}]
 })
 
-export const ImageModel = mongoose.modal("Image",ImageSchema);
+export const ImageModel = mongoose.model("Image",ImageSchema);
