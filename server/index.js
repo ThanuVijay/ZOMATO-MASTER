@@ -11,12 +11,18 @@ import helmet from "helmet"
 //connection
 import ConnectDB from "./database/connection";
 
+//API
+import Auth from "./API/Auth";
+
 const app = express();
 app.use(cors())
 app.use(express.json());
 app.use(helmet());
 
-app.listen(4000, ()=>{
+//appication routes
+app.use("/auth", Auth)
+
+app.listen(4001, ()=>{
     ConnectDB()
     .then(()=>{
         console.log("Zomato Server is Running...!!")
