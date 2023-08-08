@@ -6,10 +6,14 @@ require('dotenv').config()
 import express  from "express";
 import cors from "cors";
 import helmet from "helmet"
+import passport, { session } from "passport";
 // var mongoose = require("mongoose");
 
 //connection
 import ConnectDB from "./database/connection";
+
+//google auth config
+import googleAuthConfig from "./config/google.config";
 
 //API
 import Auth from "./API/Auth";
@@ -18,6 +22,12 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 app.use(helmet());
+app.use(passport.initialize());
+// app.use(passport.session());
+
+
+//passport config
+googleAuthConfig(passport);
 
 //appication routes
 app.use("/auth", Auth)
