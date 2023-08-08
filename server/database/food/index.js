@@ -10,6 +10,6 @@ const FoodSchema = new mongoose.Schema({
     price:{type:Number, default:150, required:true},
     addOns:{type:mongoose.Types.ObjectId, ref:"Foods"},
     restaurant:{type:mongoose.Types.ObjectId, ref:"Restaurants", required:true},
-})
+});
 
-export const FoodModel = mongoose.modal("Foods",FoodSchema);
+export const FoodModel = mongoose.model("Foods",FoodSchema);

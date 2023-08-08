@@ -30,4 +30,4 @@ const RestaurantSchema = new mongoose.Schema(
 }
 );
 
-export const RestaurantModel = mongoose.modal("Restaurants", RestaurantSchema);
+export const RestaurantModel = mongoose.model("Restaurants", RestaurantSchema);

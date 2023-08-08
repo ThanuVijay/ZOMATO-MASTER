@@ -5,4 +5,4 @@ const MenuSchema = new mongoose.Schema({
    recomended:[{type:mongoose.Types.ObjectId, ref:"Foods",unique: true}],
 });
 
-export const MenuModel = mongoose.modal("Menu",MenuSchema);
+export const MenuModel = mongoose.model("Menu",MenuSchema);
